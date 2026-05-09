@@ -27,6 +27,8 @@ Board colors, font, size, and shadow can be changed with attributes, data attrib
 
 ## Install
 
+### CDN
+
 Add the stylesheet in your page `<head>`.
 
 ```html
@@ -43,6 +45,23 @@ Add the script before the closing `</body>` tag.
 ```
 
 Then choose one of the usage patterns below.
+
+### npm
+
+Install the package:
+
+```bash
+npm install mini-chess-widget
+```
+
+Import the CSS and script from your app entry file:
+
+```js
+import "mini-chess-widget/style.css";
+import "mini-chess-widget";
+```
+
+Then place `<mini-chess-widget bot="tiny"></mini-chess-widget>` in your page or mount it with the JavaScript API below.
 
 ## Usage
 
