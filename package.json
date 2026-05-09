@@ -1,0 +1,39 @@
+{
+  "name": "mini-chess-widget",
+  "version": "0.1.0",
+  "description": "A tiny draggable chess widget with a local engine, bot play, and post-game review.",
+  "author": "Dominique Phan",
+  "homepage": "https://github.com/domoro/mini-chess-widget#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/domoro/mini-chess-widget.git"
+  },
+  "bugs": {
+    "url": "https://github.com/domoro/mini-chess-widget/issues"
+  },
+  "keywords": [
+    "chess",
+    "widget",
+    "embeddable",
+    "game",
+    "opening",
+    "analysis"
+  ],
+  "license": "MIT",
+  "main": "./dist/mini-chess-widget.js",
+  "browser": "./dist/mini-chess-widget.js",
+  "style": "./dist/mini-chess-widget.css",
+  "files": [
+    "dist",
+    "demo",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --check dist/mini-chess-widget.js",
+    "pack:local": "npm pack"
+  },
+  "exports": {
+    ".": "./dist/mini-chess-widget.js",
+    "./style.css": "./dist/mini-chess-widget.css"
+  }
+}

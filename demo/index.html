@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini Chess Widget Demo</title>
+    <link rel="stylesheet" href="../dist/mini-chess-widget.css" />
+    <style>
+      body {
+        min-height: 100vh;
+        margin: 0;
+        color: #263421;
+        background:
+          radial-gradient(circle at top left, rgba(106, 153, 78, 0.2), transparent 30rem),
+          #fafcf6;
+        font-family: Arial, sans-serif;
+      }
+
+      main {
+        max-width: 42rem;
+        padding: 4rem 2rem;
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+        color: #3f6f2a;
+        font-size: clamp(2rem, 7vw, 4.5rem);
+        line-height: 0.95;
+      }
+
+      p {
+        max-width: 32rem;
+        color: #66705d;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Mini Chess Widget</h1>
+      <p>
+        A draggable mini chess board you can drop into a static page, blog, or
+        app. Open the widget in the corner to play a quick game.
+      </p>
+    </main>
+
+    <mini-chess-widget
+      title="mini chess"
+      position="bottom-right"
+      start-minimized="false"
+      player-color="white"
+      bot="tiny"
+      bot-color="black"
+      bot-depth="2"
+      board-light="#eeeed2"
+      board-dark="#779954"
+      font-family="Inter, system-ui, sans-serif"
+      size="320px"
+      shadow="0 18px 40px rgba(31, 42, 29, 0.14)"
+      coach="false"
+    ></mini-chess-widget>
+
+    <script src="../dist/mini-chess-widget.js"></script>
+  </body>
+</html>
