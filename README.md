@@ -2,30 +2,20 @@
 
 A tiny, themeable, dependency-free chess widget for any website.
 
-## Play
-
-Drop a floating chess board into a static site, blog, portfolio, or app. The widget is draggable, responsive, and can start minimized so it stays out of the way until someone wants to play.
-
-## Review
-
-Mini Chess Widget includes legal chess rules, board flipping for white or black, opening-book moves, and a post-game move review. It does not call a chess API or cloud engine; the bot is a tiny local browser engine that uses an opening book plus a lightweight minimax-style search.
-
-## Theme
-
-Board colors, font, size, and shadow can be changed with attributes, data attributes, JavaScript options, or CSS variables.
-
-```html
-<mini-chess-widget
-  bot="tiny"
-  board-light="#eeeed2"
-  board-dark="#779954"
-  font-family="Inter, system-ui, sans-serif"
-  size="320px"
-  shadow="0 18px 40px rgba(31, 42, 29, 0.14)"
-></mini-chess-widget>
-```
+It includes legal chess rules, board flipping, a tiny local browser bot, opening-book moves, and post-game review. It does not call a chess API or cloud engine.
 
 ## Install
+
+### npm
+
+```bash
+npm install mini-chess-widget
+```
+
+```js
+import "mini-chess-widget/style.css";
+import "mini-chess-widget";
+```
 
 ### CDN
 
@@ -44,36 +34,15 @@ Add the script before the closing `</body>` tag.
 <script src="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.0/dist/mini-chess-widget.js"></script>
 ```
 
-Then choose one of the usage patterns below.
-
-### npm
-
-Install the package:
-
-```bash
-npm install mini-chess-widget
-```
-
-Import the CSS and script from your app entry file:
-
-```js
-import "mini-chess-widget/style.css";
-import "mini-chess-widget";
-```
-
-Then place `<mini-chess-widget bot="tiny"></mini-chess-widget>` in your page or mount it with the JavaScript API below.
-
 ## Usage
 
 ### Custom Element
 
-Best for static sites, blogs, and normal HTML pages. Put this anywhere inside `<body>`, usually near the end of the page.
+Put this anywhere inside `<body>`, usually near the end of the page.
 
 ```html
 <mini-chess-widget bot="tiny"></mini-chess-widget>
 ```
-
-Full example:
 
 ```html
 <mini-chess-widget
@@ -87,15 +56,9 @@ Full example:
 ></mini-chess-widget>
 ```
 
-Or tell your agent:
-
-```txt
-Add Mini Chess Widget to my page. Put the stylesheet in <head>, the script before </body>, and place <mini-chess-widget bot="tiny"></mini-chess-widget> near the end of <body>.
-```
-
 ### Data Attribute Embed
 
-Best for site builders, CMS pages, or places where custom elements are awkward. Put this `div` inside `<body>`.
+Use this for site builders or CMS pages where custom elements are awkward.
 
 ```html
 <div
@@ -107,15 +70,11 @@ Best for site builders, CMS pages, or places where custom elements are awkward. 
 ></div>
 ```
 
-### JavaScript API
-
-Best for apps that want to mount or destroy the widget manually. Add a target element in `<body>`.
+### JavaScript
 
 ```html
 <div id="chess"></div>
 ```
-
-Then run this after the widget script has loaded.
 
 ```js
 MiniChessWidget.create({
@@ -132,7 +91,7 @@ MiniChessWidget.create({
 });
 ```
 
-## API Reference
+## API
 
 ### `<mini-chess-widget />`
 
@@ -140,7 +99,7 @@ MiniChessWidget.create({
 | --- | --- | --- |
 | `title` | `string` | Header label. Default: `mini chess` |
 | `position` | `bottom-right \| bottom-left \| top-right \| top-left` | Starting corner. Default: `bottom-right` |
-| `start-minimized` | `boolean` | Start as a small collapsed bar. Default: `false` |
+| `start-minimized` | `boolean` | Start as a collapsed bar. Default: `false` |
 | `player-color` | `white \| black` | Human side and board orientation. Default: `white` |
 | `bot` | `tiny \| none` | Enable the built-in browser bot. Default: `none` |
 | `bot-color` | `white \| black` | Bot side. Default: opposite player color |
@@ -202,11 +161,3 @@ Or override CSS custom properties after loading the widget stylesheet:
 - Squares are buttons with coordinate labels.
 - Review navigation supports previous and next controls.
 - The widget is keyboard-friendly for reviewing completed games.
-
-## Local Demo
-
-Open `demo/index.html` in a browser.
-
-## License
-
-MIT
