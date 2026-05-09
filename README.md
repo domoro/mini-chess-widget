@@ -24,14 +24,14 @@ Add the stylesheet in your page `<head>`.
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.1/dist/mini-chess-widget.css"
+  href="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.2/dist/mini-chess-widget.css"
 />
 ```
 
 Add the script before the closing `</body>` tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.1/dist/mini-chess-widget.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.2/dist/mini-chess-widget.js"></script>
 ```
 
 ## Usage

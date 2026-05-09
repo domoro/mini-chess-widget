@@ -240,6 +240,11 @@
     return names[piece?.toLowerCase()] || "piece";
   }
 
+  function promotionPieceFor(piece, promotion) {
+    if (!promotion) return null;
+    return colorOf(piece) === "white" ? promotion.toUpperCase() : promotion.toLowerCase();
+  }
+
   function squareLabel(square) {
     return square ? squareName(square.row, square.col) : "";
   }
@@ -728,7 +733,7 @@
         board[move.to.row][0] = null;
       }
 
-      board[move.to.row][move.to.col] = move.promotion || piece;
+      board[move.to.row][move.to.col] = promotionPieceFor(piece, move.promotion) || piece;
       return board;
     }
 
