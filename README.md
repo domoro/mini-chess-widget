@@ -1,42 +1,62 @@
 # Mini Chess Widget
 
-A tiny draggable chess widget for any website. It includes legal chess rules, a small local bot, board flipping for white or black, opening-book moves, and a post-game move review.
+A tiny, themeable, dependency-free chess widget for any website.
 
-No framework is required.
+## Play
 
-## GitHub CDN Embed
+Drop a floating chess board into a static site, blog, portfolio, or app. The widget is draggable, responsive, and can start minimized so it stays out of the way until someone wants to play.
+
+## Review
+
+Mini Chess Widget includes legal chess rules, board flipping for white or black, opening-book moves, and a post-game move review. It does not call a chess API or cloud engine; the bot is a tiny local browser engine that uses an opening book plus a lightweight minimax-style search.
+
+## Theme
+
+Board colors, font, size, and shadow can be changed with attributes, data attributes, JavaScript options, or CSS variables.
+
+```html
+<mini-chess-widget
+  bot="tiny"
+  board-light="#eeeed2"
+  board-dark="#779954"
+  font-family="Inter, system-ui, sans-serif"
+  size="320px"
+  shadow="0 18px 40px rgba(31, 42, 29, 0.14)"
+></mini-chess-widget>
+```
+
+## Install
+
+Add the stylesheet in your page `<head>`.
 
 ```html
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.0/dist/mini-chess-widget.css"
 />
+```
 
-<div
-  data-floating-chess-widget
-  data-title="mini chess"
-  data-position="bottom-left"
-  data-start-minimized="true"
-  data-player-color="white"
-  data-bot="tiny"
-  data-bot-color="black"
-  data-bot-depth="2"
-  data-coach="false"
-  data-board-light="#eeeed2"
-  data-board-dark="#779954"
-  data-font-family="Inter, system-ui, sans-serif"
-  data-size="320px"
-  data-shadow="0 18px 40px rgba(31, 42, 29, 0.14)"
-></div>
+Add the script before the closing `</body>` tag.
 
+```html
 <script src="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.0/dist/mini-chess-widget.js"></script>
 ```
 
-## Custom Element
+Then choose one of the usage patterns below.
+
+## Usage
+
+### Custom Element
+
+Best for static sites, blogs, and normal HTML pages. Put this anywhere inside `<body>`, usually near the end of the page.
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.0/dist/mini-chess-widget.css" />
+<mini-chess-widget bot="tiny"></mini-chess-widget>
+```
 
+Full example:
+
+```html
 <mini-chess-widget
   title="mini chess"
   position="bottom-left"
@@ -45,27 +65,40 @@ No framework is required.
   bot="tiny"
   bot-color="black"
   bot-depth="2"
-  coach="false"
-  board-light="#eeeed2"
-  board-dark="#779954"
-  font-family="Inter, system-ui, sans-serif"
-  size="320px"
-  shadow="0 18px 40px rgba(31, 42, 29, 0.14)"
 ></mini-chess-widget>
-
-<script src="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.0/dist/mini-chess-widget.js"></script>
 ```
 
-## npm-ready
+Or tell your agent:
 
-```bash
-npm install mini-chess-widget
+```txt
+Add Mini Chess Widget to my page. Put the stylesheet in <head>, the script before </body>, and place <mini-chess-widget bot="tiny"></mini-chess-widget> near the end of <body>.
 ```
+
+### Data Attribute Embed
+
+Best for site builders, CMS pages, or places where custom elements are awkward. Put this `div` inside `<body>`.
+
+```html
+<div
+  data-floating-chess-widget
+  data-title="mini chess"
+  data-position="bottom-left"
+  data-start-minimized="true"
+  data-bot="tiny"
+></div>
+```
+
+### JavaScript API
+
+Best for apps that want to mount or destroy the widget manually. Add a target element in `<body>`.
+
+```html
+<div id="chess"></div>
+```
+
+Then run this after the widget script has loaded.
 
 ```js
-import "mini-chess-widget/style.css";
-import "mini-chess-widget";
-
 MiniChessWidget.create({
   target: document.querySelector("#chess"),
   title: "mini chess",
@@ -73,56 +106,35 @@ MiniChessWidget.create({
   startMinimized: true,
   playerColor: "white",
   bot: "tiny",
-  botColor: "black",
   botDepth: 2,
-  coach: false,
-  boardLight: "#eeeed2",
-  boardDark: "#779954",
-  fontFamily: "Inter, system-ui, sans-serif",
-  size: "320px",
-  shadow: "0 18px 40px rgba(31, 42, 29, 0.14)",
+  onMove(move) {
+    console.log(move);
+  },
 });
 ```
 
-## Options
+## API Reference
 
-| JavaScript option | Data attribute | Custom element attribute | Default |
-| --- | --- | --- | --- |
-| `title` | `data-title` | `title` | `mini chess` |
-| `position` | `data-position` | `position` | `bottom-right` |
-| `startMinimized` | `data-start-minimized` | `start-minimized` | `false` |
-| `playerColor` | `data-player-color` | `player-color` | `white` |
-| `bot` | `data-bot` | `bot` | `none` |
-| `botColor` | `data-bot-color` | `bot-color` | opposite player color |
-| `botDepth` | `data-bot-depth` | `bot-depth` | `1` |
-| `coach` | `data-coach` | `coach` | `false` |
-| `boardLight` | `data-board-light` | `board-light` | `#eeeed2` |
-| `boardDark` | `data-board-dark` | `board-dark` | `#779954` |
-| `fontFamily` | `data-font-family` | `font-family` | `Lato, Arial, sans-serif` |
-| `size` | `data-size` | `size` | `286px` |
-| `shadow` | `data-shadow` | `shadow` | `0 18px 40px rgba(31, 42, 29, 0.14)` |
-| `fen` | `data-fen` | `fen` | starting position |
+### `<mini-chess-widget />`
 
-Positions: `bottom-right`, `bottom-left`, `top-right`, `top-left`.
+| Attribute | Type | Description |
+| --- | --- | --- |
+| `title` | `string` | Header label. Default: `mini chess` |
+| `position` | `bottom-right \| bottom-left \| top-right \| top-left` | Starting corner. Default: `bottom-right` |
+| `start-minimized` | `boolean` | Start as a small collapsed bar. Default: `false` |
+| `player-color` | `white \| black` | Human side and board orientation. Default: `white` |
+| `bot` | `tiny \| none` | Enable the built-in browser bot. Default: `none` |
+| `bot-color` | `white \| black` | Bot side. Default: opposite player color |
+| `bot-depth` | `number` | How far the bot searches. `2` is a good default |
+| `coach` | `boolean` | Reserved for coach/review display. Default: `false` |
+| `fen` | `string` | Optional starting position |
 
-Bot modes: use `tiny` to enable the built-in bot, or `none` for local two-player play.
-
-Board colors can be any valid CSS color, including hex, `rgb()`, `hsl()`, or named colors. JavaScript also accepts `lightSquareColor` and `darkSquareColor` as aliases for `boardLight` and `boardDark`.
-
-The font can be any valid CSS font-family stack. JavaScript also accepts `font` as an alias for `fontFamily`.
-
-Size can be a number in JavaScript, which is treated as pixels, or any valid CSS width such as `260px`, `20rem`, or `min(360px, 90vw)`. JavaScript also accepts `width` and `widgetWidth` as aliases for `size`.
-
-Shadow can be any valid CSS `box-shadow` value. Use `shadow: "none"` for a flat widget. JavaScript also accepts `widgetShadow` as an alias.
-
-## API
+### `MiniChessWidget.create(options)`
 
 ```js
 const widget = MiniChessWidget.create({
   target: document.querySelector("#chess"),
-  onMove(move) {
-    console.log(move);
-  },
+  bot: "tiny",
 });
 
 widget.reset();
@@ -131,26 +143,51 @@ widget.destroy();
 
 The global API is available as `MiniChessWidget`. `PocketChessWidget` and `FloatingChessWidget` are kept as aliases.
 
+## Theming
+
+Use attributes:
+
+```html
+<mini-chess-widget
+  board-light="#f0d9b5"
+  board-dark="#6a994e"
+  font-family="Georgia, serif"
+  size="300px"
+  shadow="none"
+></mini-chess-widget>
+```
+
+Or override CSS custom properties after loading the widget stylesheet:
+
+```css
+.fcw-root {
+  --fcw-board-light: #f0d9b5;
+  --fcw-board-dark: #6a994e;
+  --fcw-font-family: Inter, system-ui, sans-serif;
+  --fcw-widget-width: 320px;
+  --fcw-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+```
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `--fcw-board-light` | `#eeeed2` | Light squares |
+| `--fcw-board-dark` | `#779954` | Dark squares |
+| `--fcw-font-family` | `Lato, Arial, sans-serif` | Widget UI font |
+| `--fcw-widget-width` | `286px` | Open widget width |
+| `--fcw-shadow` | `0 18px 40px rgba(31, 42, 29, 0.14)` | Panel shadow |
+
+## Accessibility
+
+- The board uses grid semantics.
+- Squares are buttons with coordinate labels.
+- Review navigation supports previous and next controls.
+- The widget is keyboard-friendly for reviewing completed games.
+
 ## Local Demo
 
-Open `demo/index.html` in a browser, or serve this package folder with any static server.
+Open `demo/index.html` in a browser.
 
-```bash
-npm run test
-npm pack
-```
+## License
 
-The packed `.tgz` file can be installed into another project before npm publishing:
-
-```bash
-npm install ./mini-chess-widget-0.1.0.tgz
-```
-
-## GitHub Publishing
-
-Create a public GitHub repository named `mini-chess-widget`, push this package folder, then tag the first release:
-
-```bash
-git tag v0.1.0
-git push origin main --tags
-```
+MIT
