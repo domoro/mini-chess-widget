@@ -53,6 +53,11 @@ Put this anywhere inside `<body>`, usually near the end of the page.
   bot="tiny"
   bot-color="black"
   bot-depth="2"
+  board-light="#eeeed2"
+  board-dark="#779954"
+  font-family="Lato, Arial, sans-serif"
+  size="286px"
+  shadow="0 18px 40px rgba(31, 42, 29, 0.14)"
 ></mini-chess-widget>
 ```
 
@@ -67,6 +72,11 @@ Use this for site builders or CMS pages where custom elements are awkward.
   data-position="bottom-left"
   data-start-minimized="true"
   data-bot="tiny"
+  data-board-light="#eeeed2"
+  data-board-dark="#779954"
+  data-font-family="Lato, Arial, sans-serif"
+  data-size="286px"
+  data-shadow="0 18px 40px rgba(31, 42, 29, 0.14)"
 ></div>
 ```
 
@@ -85,6 +95,11 @@ MiniChessWidget.create({
   playerColor: "white",
   bot: "tiny",
   botDepth: 2,
+  boardLight: "#eeeed2",
+  boardDark: "#779954",
+  fontFamily: "Lato, Arial, sans-serif",
+  size: "286px",
+  shadow: "0 18px 40px rgba(31, 42, 29, 0.14)",
   onMove(move) {
     console.log(move);
   },
@@ -127,11 +142,11 @@ Use attributes:
 
 ```html
 <mini-chess-widget
-  board-light="#f0d9b5"
-  board-dark="#6a994e"
-  font-family="Georgia, serif"
-  size="300px"
-  shadow="none"
+  board-light="#eeeed2"
+  board-dark="#779954"
+  font-family="Lato, Arial, sans-serif"
+  size="286px"
+  shadow="0 18px 40px rgba(31, 42, 29, 0.14)"
 ></mini-chess-widget>
 ```
 
@@ -139,11 +154,11 @@ Or override CSS custom properties after loading the widget stylesheet:
 
 ```css
 .fcw-root {
-  --fcw-board-light: #f0d9b5;
-  --fcw-board-dark: #6a994e;
-  --fcw-font-family: Inter, system-ui, sans-serif;
-  --fcw-widget-width: 320px;
-  --fcw-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  --fcw-board-light: #eeeed2;
+  --fcw-board-dark: #779954;
+  --fcw-font-family: Lato, Arial, sans-serif;
+  --fcw-widget-width: 286px;
+  --fcw-shadow: 0 18px 40px rgba(31, 42, 29, 0.14);
 }
 ```
 
