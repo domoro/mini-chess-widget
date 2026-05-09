@@ -1051,6 +1051,7 @@
     build() {
       this.root = document.createElement("section");
       this.root.className = "fcw-root";
+      this.root.__floatingChessWidget = this;
       this.root.dataset.position = this.position;
       this.root.setAttribute("aria-label", this.title);
       if (this.boardLight) {
@@ -1058,6 +1059,8 @@
       }
       if (this.boardDark) {
         this.root.style.setProperty("--fcw-board-dark", this.boardDark);
+        this.root.style.setProperty("--fcw-green", this.boardDark);
+        this.root.style.setProperty("--fcw-green-deep", this.boardDark);
       }
       if (this.fontFamily) {
         this.root.style.setProperty("--fcw-font-family", this.fontFamily);

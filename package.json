@@ -1,6 +1,6 @@
 {
   "name": "mini-chess-widget",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A tiny draggable chess widget with a local engine, bot play, and post-game review.",
   "author": "Dominique Phan",
   "homepage": "https://github.com/domoro/mini-chess-widget#readme",

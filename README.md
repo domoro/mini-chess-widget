@@ -24,14 +24,14 @@ Add the stylesheet in your page `<head>`.
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.0/dist/mini-chess-widget.css"
+  href="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.1/dist/mini-chess-widget.css"
 />
 ```
 
 Add the script before the closing `</body>` tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.0/dist/mini-chess-widget.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/domoro/mini-chess-widget@v0.1.1/dist/mini-chess-widget.js"></script>
 ```
 
 ## Usage
@@ -150,6 +150,8 @@ Use attributes:
 ></mini-chess-widget>
 ```
 
+`board-dark` also controls the widget accent color by default, including the title, board border, active buttons, and review controls.
+
 Or override CSS custom properties after loading the widget stylesheet:
 
 ```css
@@ -166,6 +168,8 @@ Or override CSS custom properties after loading the widget stylesheet:
 | --- | --- | --- |
 | `--fcw-board-light` | `#eeeed2` | Light squares |
 | `--fcw-board-dark` | `#779954` | Dark squares |
+| `--fcw-green` | `var(--fcw-board-dark)` | Active button and accent fill |
+| `--fcw-green-deep` | `var(--fcw-board-dark)` | Title, board border, and control text |
 | `--fcw-font-family` | `Lato, Arial, sans-serif` | Widget UI font |
 | `--fcw-widget-width` | `286px` | Open widget width |
 | `--fcw-shadow` | `0 18px 40px rgba(31, 42, 29, 0.14)` | Panel shadow |
